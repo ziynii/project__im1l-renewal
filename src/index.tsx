@@ -55,7 +55,7 @@ body {
 	font-weight: 300;
 	color: white;
 	line-height: 1.2;
-	font-family: 'Nanum Gothic', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 a {
 	text-decoration: none;
