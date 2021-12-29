@@ -1,10 +1,11 @@
 export interface IMenu {
   id: number;
   name: string;
-  price: string;
+  price?: string;
   desciption: string;
   url: string;
   category: string;
+  option?: string;
 }
 
 export default [
@@ -16,6 +17,7 @@ export default [
       '콜롬비아 원두를 베이스로 100% 아라비카 원두만을 사용한 에스프레소',
     url: 'image/ep.png',
     category: 'coffee',
+    option: 'Only Hot',
   },
   {
     id: 2,
@@ -25,6 +27,7 @@ export default [
       '100% 아라비카 원두만을 사용한 에스프레소 위에 소량의 우유거품을 얹은 부드러운 에스프레소',
     url: 'image/m_c.png',
     category: 'coffee',
+    option: 'Only Hot',
   },
   {
     id: 3,
@@ -34,6 +37,7 @@ export default [
       '100% 아라비카 원두만을 사용한 에스프레소 위에 풍부한 휘핑크림을 얹은 달콤한 에스프레소',
     url: 'image/conpa.png',
     category: 'coffee',
+    option: 'Only Hot',
   },
   {
     id: 4,
@@ -43,6 +47,7 @@ export default [
       '아임일리터만의 맛과 향을 더한 100% 아라비카 원두로 추출해 산뜻하고 풍부한 맛의 아메리카노',
     url: 'image/aa.png',
     category: 'coffee',
+    option: 'Hot/Ice',
   },
   {
     id: 5,
@@ -52,6 +57,7 @@ export default [
       '아임일리터의 산뜻하고 풍부한 아메리카노와 프리미엄 헤이즐넛 시럽의 만남',
     url: 'image/aa.png',
     category: 'coffee',
+    option: 'Hot/Ice',
   },
   {
     id: 6,
@@ -61,6 +67,7 @@ export default [
       '풍부한 에스프레소와 신선한 우유가 어우러져 고소하고 부드러운 카페라떼',
     url: 'image/cl.png',
     category: 'coffee',
+    option: 'Hot/Ice',
   },
   {
     id: 7,
@@ -70,6 +77,7 @@ export default [
       '신선한 우유로 만든 벨벳 우유 거품과 풍부한 에스프레소의 절묘한 조화',
     url: 'image/cpu.png',
     category: 'coffee',
+    option: 'Hot/Ice',
   },
   {
     id: 8,
@@ -79,6 +87,7 @@ export default [
       '아임일리터의 고소하고 부드러운 카페라떼와 프리미엄 바닐라 시럽의 만남',
     url: 'image/b_l.png',
     category: 'coffee',
+    option: 'Hot/Ice',
   },
   {
     id: 9,
@@ -88,6 +97,7 @@ export default [
       '아임일리터의 고소하고 부드러운 카페라떼와 프리미엄 헤이즐넛 시럽의 만남',
     url: 'image/h_l.png',
     category: 'coffee',
+    option: 'Hot/Ice',
   },
   {
     id: 10,
@@ -97,6 +107,7 @@ export default [
       '쌉싸름한 다크초콜릿과 풍부한 에스프레소, 신선한 우유가 더해진 달콤한 커피',
     url: 'image/cmo.png',
     category: 'coffee',
+    option: 'Hot/Ice',
   },
   {
     id: 11,
@@ -106,6 +117,7 @@ export default [
       '부드러운 우유 거품과 달콤한 카라멜, 에스프레소의 풍부한 맛이 돋보이는 커피',
     url: 'image/cm.png',
     category: 'coffee',
+    option: 'Hot/Ice',
   },
   {
     id: 12,
@@ -115,6 +127,7 @@ export default [
       '100% 아라비카 원두를 저온 방식으로 장시간에 걸쳐 추출해 풍미가 돋보이는 커피',
     url: 'image/d_c.png',
     category: 'coffee',
+    option: 'Hot/Ice',
   },
   {
     id: 13,
@@ -124,6 +137,7 @@ export default [
       '저온 방식으로 장시간 추출한 커피와 신선한 우유가 어우러져 한층 더 고소한 커피',
     url: 'image/d_l.png',
     category: 'coffee',
+    option: 'Hot/Ice',
   },
   {
     id: 14,
@@ -133,6 +147,7 @@ export default [
       '깊고 진한 에스프레소와 달콤한 바닐라빈 연유가 만나 달콤하고 부드러운 커피',
     url: 'image/dolche.png',
     category: 'coffee',
+    option: 'Hot/Ice',
   },
   {
     id: 15,
@@ -141,6 +156,7 @@ export default [
     desciption: '진하고 달콤한 흑당에 고소한 카페라떼가 어우러진 커피음료',
     url: 'image/b_s_c.png',
     category: 'coffee',
+    option: 'Only Ice',
   },
   {
     id: 16,
@@ -150,6 +166,7 @@ export default [
       '다크초콜릿과 부드러운 우유, 그리고 달콤한 휘핑크림이 조화로운 음료',
     url: 'image/cho_la.png',
     category: 'beverage',
+    option: 'Hot/Ice',
   },
   {
     id: 17,
@@ -158,6 +175,7 @@ export default [
     desciption: '달콤하고 고소하며 포만감이 가득한 곡물 우유',
     url: 'image/misu.png',
     category: 'beverage',
+    option: 'Hot/Ice',
   },
   {
     id: 18,
@@ -166,6 +184,7 @@ export default [
     desciption: '달콤한 고구마에 신선한 우유를 더해 든든한 음료',
     url: 'image/goguma_l.png',
     category: 'beverage',
+    option: 'Hot/Ice',
   },
   {
     id: 19,
@@ -174,6 +193,7 @@ export default [
     desciption: '100% 국내산 녹차와 우유를 사용해 쌉싸름하고 고소한 음료',
     url: 'image/green_l.png',
     category: 'beverage',
+    option: 'Hot/Ice',
   },
   {
     id: 20,
@@ -182,6 +202,7 @@ export default [
     desciption: '초콜릿과 민트향이 만나 달콤, 청량한 초코 음료',
     url: 'image/m_c_l.png',
     category: 'beverage',
+    option: 'Hot/Ice',
   },
   {
     id: 21,
@@ -191,6 +212,7 @@ export default [
       '오레오의 특유의 크리미함과 부드러운 우유의 조화를 느낄 수 있는 초코 음료',
     url: 'image/cook_la.png',
     category: 'beverage',
+    option: 'Hot/Ice',
   },
   {
     id: 22,
@@ -200,6 +222,7 @@ export default [
       '진하고 부드러운 크림치즈에 다크초콜릿, 푸짐한 토핑치즈케이크가 어우러진 음료',
     url: 'image/cheese_choco_latte.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 23,
@@ -209,6 +232,7 @@ export default [
       '진하고 부드러운 크림치즈에 딸기 과육, 푸짐한 토핑치즈케이크가 어우러진 음료',
     url: 'image/c_s_l.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 24,
@@ -217,6 +241,7 @@ export default [
     desciption: '달콤한 바닐라빈연유와 신선한 우유, 마시멜로우가 조화로운 음료',
     url: 'image/mellow.png',
     category: 'beverage',
+    option: 'Hot/Ice',
   },
   {
     id: 25,
@@ -225,6 +250,7 @@ export default [
     desciption: '진하고 달콤한 흑당에 쫄깃한 버블이 어우러진 음료',
     url: 'image/b_s_l.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 26,
@@ -233,6 +259,7 @@ export default [
     desciption: '풍부한 복숭아 향이 가득한 달콤한 인기 음료',
     url: 'image/p_i_tea.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 27,
@@ -241,6 +268,7 @@ export default [
     desciption: '상큼한 레몬 향이 가득하고 새콤달콤한 인기 음료',
     url: 'image/l_aa.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 28,
@@ -249,6 +277,7 @@ export default [
     desciption: '상큼한 레몬 그리고 탄산의 청량감을 즐길 수 있는 달달한 음료',
     url: 'image/l_ade.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 29,
@@ -258,6 +287,7 @@ export default [
       '자몽의 쌉싸름함과 상큼함 그리고 탄산의 청량감을 즐길 수 있는 음료',
     url: 'image/g_ade.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 30,
@@ -267,6 +297,7 @@ export default [
       '청포도의 상큼함과 달콤함 그리고 탄산의 청량감을 즐길 수 있는 음료',
     url: 'image/g_g_ade.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 31,
@@ -275,6 +306,7 @@ export default [
     desciption: '달콤한 딸기 과육과 상큼한 레몬이 어우러진 청량한 탄산음료',
     url: 'image/s_l_ade.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 32,
@@ -284,6 +316,7 @@ export default [
       '레몬의 상큼함과 진한 달콤함 그리고 탄산의 청량감을 즐길 수 있는 음료',
     url: 'image/b_l_ade.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 33,
@@ -292,6 +325,7 @@ export default [
     desciption: '청정 제주의 싱그러움을 그대로 담은 새콤달콤한 청귤에이드',
     url: 'image/u_ade.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 34,
@@ -300,6 +334,7 @@ export default [
     desciption: '새콤한 레몬향과 달콤한 요거트가 조화로운 요거트스무디',
     url: 'image/yogert_sm.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 35,
@@ -308,6 +343,7 @@ export default [
     desciption: '열대과일 망고가 들어가 달콤하고 쫀득한 스무디',
     url: 'image/mang_sm.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 36,
@@ -316,6 +352,7 @@ export default [
     desciption: '딸기 과육이 들어가 새콤달콤함이 입안 가득 퍼지는 요거트스무디',
     url: 'image/st_sm.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 37,
@@ -325,6 +362,7 @@ export default [
       '100% 국내산 녹차와 우유를 사용해 고소하고 쌉싸름한 맛의 스무디',
     url: 'image/green_sm.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 38,
@@ -334,6 +372,7 @@ export default [
       '다크초콜릿과 부드러운 우유, 그리고 초코칩이 가득 들어간 달콤한 스무디',
     url: 'image/cho_chip_sm.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 39,
@@ -342,6 +381,7 @@ export default [
     desciption: '블루베리 과육이 들어가 상큼함이 입안 가득 퍼지는 요거트스무디',
     url: 'image/bb_sm.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 40,
@@ -350,6 +390,7 @@ export default [
     desciption: '초콜릿과 민트향이 만나 달콤하면서도 청량감 있는 초코스무디',
     url: 'image/mint_cho_sm.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 41,
@@ -359,6 +400,7 @@ export default [
       '오레오의 특유의 크리미함과 부드러운 우유의 조화를 느낄 수 있는 초코스무디',
     url: 'image/cook_sm.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 42,
@@ -368,6 +410,7 @@ export default [
       '향미가 풍부하고 부드러운 크림치즈와 다크초콜릿, 푸짐한 토핑치즈케이크가 어우러진 시원한 음료',
     url: 'image/cheese_choco_sm.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 43,
@@ -377,6 +420,7 @@ export default [
       '향미가 풍부하고 부드러운 크림치즈와 딸기 과육, 푸짐한 토핑치즈케이크가 어우러진 시원한 음료',
     url: 'image/c_s_s.png',
     category: 'beverage',
+    option: 'Only Ice',
   },
   {
     id: 44,
@@ -386,6 +430,7 @@ export default [
       '열대 과일 풍미와 로즈힙, 히비스커스가 상큼하게 조화를 이루는 새콤달콤한 허브차',
     url: 'image/hibiscus.png',
     category: 'tea',
+    option: 'Hot/Ice',
   },
   {
     id: 45,
@@ -395,6 +440,7 @@ export default [
       '알싸한 생강에 감귤 껍질, 감초 그리고 오미자차가 연상되는 깊은 진홍색의 블렌딩 차 입니다.',
     url: 'image/tangerine-ginger.png',
     category: 'tea',
+    option: 'Hot/Ice',
   },
   {
     id: 46,
@@ -403,6 +449,7 @@ export default [
     desciption: '비타민이 풍부하고 상큼달콤한 대표적인 과일 티',
     url: 'image/uza_tea.png',
     category: 'tea',
+    option: 'Hot/Ice',
   },
   {
     id: 47,
@@ -411,6 +458,7 @@ export default [
     desciption: '레몬 과육이 듬뿍 들어가 더욱 상큼한 과일 티',
     url: 'image/l_tea.png',
     category: 'tea',
+    option: 'Hot/Ice',
   },
   {
     id: 48,
@@ -419,6 +467,7 @@ export default [
     desciption: '생자몽을 착즙해 과육이 입안에서 톡톡 터지는 달콤한 과일 티',
     url: 'image/honey_g.png',
     category: 'tea',
+    option: 'Hot/Ice',
   },
   {
     id: 49,
@@ -427,6 +476,7 @@ export default [
     desciption: '청정 제주의 싱그러움을 그대로 담은 새콤달콤한 청귤차',
     url: 'image/u_tea.png',
     category: 'tea',
+    option: 'Hot/Ice',
   },
   {
     id: 50,
@@ -435,6 +485,7 @@ export default [
     desciption: '프리미엄 홍차를 저온침출한 부드럽고 진한 블랙밀크티',
     url: 'image/milk_tea.png',
     category: 'tea',
+    option: 'Hot/Ice',
   },
   {
     id: 51,
@@ -443,6 +494,7 @@ export default [
     desciption: '최고급 홍차에 달콤한 꿀을 더한 향긋한 허니밀크티',
     url: 'image/milk_tea.png',
     category: 'tea',
+    option: 'Hot/Ice',
   },
   {
     id: 52,
@@ -452,6 +504,7 @@ export default [
       '베르가못 오일에서 추출된 감귤 및 꽃향기가 풍부한, 부드럽고 생동감 넘치는 잎차',
     url: 'image/grey_tea.png',
     category: 'tea',
+    option: 'Hot/Ice',
   },
   {
     id: 53,
@@ -461,6 +514,7 @@ export default [
       '진정 효과가 있는 카모마일에 언뜻 느껴지는 감귤과 민트의 향이 조화롭게 블렌딩된 잎차',
     url: 'image/camo_tea.png',
     category: 'tea',
+    option: 'Hot/Ice',
   },
   {
     id: 54,
@@ -469,6 +523,7 @@ export default [
     desciption: '힐링이 되는 달콤한 루이보스와 시원한 페퍼민트가 블렌딩된 잎차',
     url: 'image/mint_tea.png',
     category: 'tea',
+    option: 'Hot/Ice',
   },
   {
     id: 55,
@@ -629,5 +684,75 @@ export default [
       '남녀노소 누구나 알고 있는 고소하고 달달한 땅콩카라멜 맛! 부드럽고 달달한 과자 토핑도 잔뜩 :)',
     url: 'image/p-c.png',
     category: 'season',
+  },
+  {
+    id: 74,
+    name: '에티오피아 시다모 핸드드립',
+    desciption: 'Ethiopia Sidamo',
+    url: 'image/ethiopia.png',
+    category: 'md',
+  },
+  {
+    id: 75,
+    name: '코스타리카 따라주 핸드드립',
+    desciption: 'Costa Rica Tarrazu',
+    url: 'image/costa.png',
+    category: 'md',
+  },
+  {
+    id: 76,
+    name: '케냐 AA 핸드드립',
+    desciption: 'Kenya AA',
+    url: 'image/kenya.png',
+    category: 'md',
+  },
+  {
+    id: 77,
+    name: '흰색 텀블러',
+    desciption: 'White Tumbler',
+    url: 'image/white.png',
+    category: 'md',
+  },
+  {
+    id: 78,
+    name: '로즈골드 텀블러',
+    desciption: 'Rosegold Tumbler',
+    url: 'image/rosegold.png',
+    category: 'md',
+  },
+  {
+    id: 79,
+    name: '블랙 텀블러',
+    desciption: 'Black Tumbler',
+    url: 'image/black_tum.png',
+    category: 'md',
+  },
+  {
+    id: 80,
+    name: '베이직 머그컵 흰색',
+    desciption: 'IM1L Bagic Mug',
+    url: 'image/mugwhite.png',
+    category: 'md',
+  },
+  {
+    id: 81,
+    name: '베이직 머그컵 로즈골드',
+    desciption: 'IM1L Bagic Mug',
+    url: 'image/mugrose.png',
+    category: 'md',
+  },
+  {
+    id: 82,
+    name: '아임일리터 트라이탄컵 L',
+    desciption: 'IM1L Tritan Cup L',
+    url: 'image/tritan1l.png',
+    category: 'md',
+  },
+  {
+    id: 83,
+    name: '아임일리터 트라이탄컵 M',
+    desciption: 'IM1L Tritan Cup M',
+    url: 'image/tritanxl.png',
+    category: 'md',
   },
 ];
