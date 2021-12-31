@@ -30,7 +30,7 @@ const TextWrap = styled.div`
   left: 50%;
   transform: translateX(-50%);
   h4 {
-    font-weight: bold;
+    font-weight: 700;
   }
   p {
     font-size: 0.7em;
