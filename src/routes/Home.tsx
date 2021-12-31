@@ -8,7 +8,6 @@ interface IHomeProps {
 }
 
 const Wrapper = styled.div`
-  width: 100vw;
   height: 100%;
 `;
 
@@ -44,6 +43,7 @@ const ContentWrap = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   padding: 1.5em 2em;
+	margin-top: 3em;
 `;
 
 const ContnetTitle = styled.h2`
@@ -62,30 +62,31 @@ const ContentCaption = styled.p`
   margin-bottom: 1.6em;
 `;
 
-const MenuBtns = styled.div<{ menuTabNum: number }>`
+const MenuBtns = styled.div`
   text-align: center;
-  button {
-    outline: none;
-    border: 0;
-    cursor: pointer;
-    background-color: transparent;
-    padding: 0.4em 0.8em;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    transition: color 150ms;
-    &:hover {
-      color: ${(props) => props.theme.mainColor};
-    }
-    &:nth-child(${(props) => props.menuTabNum}) {
-      color: ${(props) => props.theme.mainColor};
-    }
-    &:not(:last-child) {
-      border-right: 1px solid lightgray;
-    }
+`;
+
+const MenuBtn = styled.button<{ menuTabNum: number }>`
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0.4em 0.8em;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  transition: color 150ms;
+  &:hover {
+    color: ${(props) => props.theme.mainColor};
+  }
+  &:nth-child(${(props) => props.menuTabNum}) {
+    color: ${(props) => props.theme.mainColor};
+  }
+  &:not(:last-child) {
+    border-right: 1px solid lightgray;
   }
 `;
 
-const MenuItems = styled.ul`
+const ItemList = styled.ul`
   height: 430px;
   display: flex;
   align-items: center;
@@ -99,7 +100,14 @@ const MenuItems = styled.ul`
     border-radius: 16px;
   }
   &::-webkit-scrollbar {
-    height: 6px;
+    height: 4px;
+  }
+`;
+
+const MdList = styled(ItemList)`
+  height: 350px;
+  li {
+    height: 280px;
   }
 `;
 
@@ -109,8 +117,11 @@ const Home = ({ menus }: IHomeProps) => {
   const filterMenu = menus.filter((menu) => {
     return menu.category === menuSelect;
   });
+  const mdMenu = menus.filter((menu) => {
+    return menu.category === 'md';
+  });
 
-  console.log(filterMenu);
+  console.log(mdMenu);
 
   return (
     <Wrapper>
@@ -128,43 +139,51 @@ const Home = ({ menus }: IHomeProps) => {
         <ContentCaption>
           고객을 위한 정성이 담긴 아임일리터의 메뉴입니다
         </ContentCaption>
-        <MenuBtns menuTabNum={menuTabNum}>
-          <button
+        <MenuBtns>
+          <MenuBtn
+            menuTabNum={menuTabNum}
             onClick={() => {
               setMenuSelect('coffee');
               setMenuTabNum(1);
             }}
           >
             coffee
-          </button>
-          <button
+          </MenuBtn>
+          <MenuBtn
+            menuTabNum={menuTabNum}
             onClick={() => {
               setMenuSelect('beverage');
               setMenuTabNum(2);
             }}
           >
             beverage
-          </button>
-          <button
+          </MenuBtn>
+          <MenuBtn
+            menuTabNum={menuTabNum}
             onClick={() => {
               setMenuSelect('tea');
               setMenuTabNum(3);
             }}
           >
             tea
-          </button>
+          </MenuBtn>
         </MenuBtns>
-        <MenuItems>
+        <ItemList>
           {filterMenu.map((menu) => (
             <MenuCard key={menu.id} menu={menu} />
           ))}
-        </MenuItems>
+        </ItemList>
       </ContentWrap>
       <ContentWrap>
         <ContnetTitle>merchandiser</ContnetTitle>
         <ContentCaption>
           다양한 상품들로 언제 어디서나 아임일리터와 함께하세요.
         </ContentCaption>
+        <MdList>
+          {mdMenu.map((menu) => (
+            <MenuCard key={menu.id} menu={menu} />
+          ))}
+        </MdList>
       </ContentWrap>
       <ContentWrap>
         <ContnetTitle>franchise</ContnetTitle>

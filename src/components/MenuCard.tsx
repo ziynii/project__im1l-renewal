@@ -11,12 +11,11 @@ const Item = styled.li`
   height: 350px;
   color: ${(props) => props.theme.textColor};
   text-align: center;
-  /* border: 1px solid lightgray; */
   border-radius: 16px;
   box-shadow: 0px 10px 13px -7px lightgray, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   z-index: -1;
   &:not(:last-child) {
-    margin-right: 0.8em;
+    margin-right: 1.2em;
   }
   img {
     width: 200px;
@@ -45,7 +44,7 @@ const MenuCard = ({ menu }: IMenuCardProps) => {
       <img src={menu.url} alt={menu.name} />
       <TextWrap>
         <h4>{menu.name}</h4>
-        <p>{menu.option}</p>
+        <p>{menu.option || menu.desciption}</p>
       </TextWrap>
     </Item>
   );
