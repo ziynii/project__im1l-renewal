@@ -43,7 +43,7 @@ const ContentWrap = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   padding: 1.5em 2em;
-	margin-top: 3em;
+  margin-top: 4.8em;
 `;
 
 const ContnetTitle = styled.h2`
@@ -71,7 +71,7 @@ const MenuBtn = styled.button<{ menuTabNum: number }>`
   border: 0;
   cursor: pointer;
   background-color: transparent;
-  padding: 0.4em 0.8em;
+  padding: 0.4em 1.2em;
   text-transform: uppercase;
   font-size: 0.8em;
   transition: color 150ms;
@@ -108,6 +108,44 @@ const MdList = styled(ItemList)`
   height: 350px;
   li {
     height: 280px;
+  }
+`;
+
+const Interior = styled.div`
+  width: 90%;
+  height: 342px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 6px 7px 21px 5px lightgray;
+  .interior__left,
+  .interior__right {
+    flex-basis: 50%;
+  }
+  .interior__left {
+    height: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .interior__right {
+    height: 100%;
+    color: ${(props) => props.theme.textColor};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3.5em 4em;
+    h3 {
+      font-size: 1.8em;
+			font-weight: 700;
+    }
+    p {
+      font-size: 0.9em;
+      color: gray;
+    }
   }
 `;
 
@@ -184,6 +222,27 @@ const Home = ({ menus }: IHomeProps) => {
             <MenuCard key={menu.id} menu={menu} />
           ))}
         </MdList>
+      </ContentWrap>
+      <ContentWrap>
+        <ContnetTitle>interior</ContnetTitle>
+        <ContentCaption>
+          세련되고 모던한 아임일리터의 인테리어입니다.
+        </ContentCaption>
+        <Interior>
+          <div className="interior__left">
+            <img src="image/interior.png" alt="내부 인테리어 이미지" />
+          </div>
+          <div className="interior__right">
+            <h3>
+              편안하고 부드러운 감성, <br /> 아임일리터
+            </h3>
+            <p>
+              화이트를 베이스 컬러로 우드톤을 포인트로 주어 <br />{' '}
+              자연스러우면서도 답답하지 않도록 공간을 꾸몄습니다. <br /> 따뜻한
+              분위기의 아임일리터에서 즐거운 시간을 보내시길 바랍니다.
+            </p>
+          </div>
+        </Interior>
       </ContentWrap>
       <ContentWrap>
         <ContnetTitle>franchise</ContnetTitle>
