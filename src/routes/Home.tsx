@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import MenuCard from '../components/Home/MenuCard';
 import { IMenu } from '../data';
+import '@fortawesome/fontawesome-free/js/all.js';
 
 interface IHomeProps {
   menus: IMenu[];
@@ -189,7 +190,7 @@ const GoCard = styled.a.attrs({ href: '#' })`
   border-radius: 16px;
   font-size: 0.9em;
   font-weight: 400;
-  margin-bottom: 0.8rem;
+  margin-top: 0.8rem;
   transition: background-color 150ms;
   &:hover {
     background-color: ${(props) => props.theme.textColor};
@@ -210,12 +211,46 @@ const CardText = styled.div`
 `;
 
 const Footer = styled.footer`
-  padding: 1.5em 2em;
+  padding: 3.6em 0;
   margin-top: 4.8em;
   background-color: ${(props) => props.theme.textColor};
   .layout {
     max-width: 1280px;
     margin: 0 auto;
+    img {
+      width: 180px;
+      margin-bottom: 1.2em;
+    }
+    p {
+      margin-top: 0.8rem;
+      font-size: 0.9em;
+    }
+  }
+`;
+
+const Snsicon = styled.div`
+  display: flex;
+  margin-top: 1.2rem;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    color: lightgray;
+    transition: all 150ms;
+    &:hover {
+      color: ${(props) => props.theme.mainColor};
+      border: 1px solid ${(props) => props.theme.mainColor};
+    }
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
+  svg {
+    font-size: 18px;
   }
 `;
 
@@ -322,56 +357,73 @@ const Home = ({ menus }: IHomeProps) => {
             <CardIcon>
               <i className="fas fa-store"></i>
             </CardIcon>
-            <GoCard>바로가기</GoCard>
+
             <CardText>
               <h3>창업절차</h3>
               <p>
                 아임일리터 가맹점 <br /> 창업절차입니다.
               </p>
             </CardText>
+            <GoCard>바로가기</GoCard>
           </Card>
           <Card>
             <CardIcon>
               <i className="fas fa-coins"></i>
             </CardIcon>
-            <GoCard>바로가기</GoCard>
             <CardText>
               <h3>창업비용</h3>
               <p>
                 아임일리터 창업에 들어가는 <br /> 창업비용입니다.
               </p>
             </CardText>
+            <GoCard>바로가기</GoCard>
           </Card>
           <Card>
             <CardIcon>
               <i className="fas fa-question"></i>
             </CardIcon>
-            <GoCard>바로가기</GoCard>
             <CardText>
               <h3>FAQ</h3>
               <p>
                 예비 창업자분들이 <br /> 자주 하시는 질문입니다.
               </p>
             </CardText>
+            <GoCard>바로가기</GoCard>
           </Card>
           <Card>
             <CardIcon>
               <i className="far fa-comments"></i>
             </CardIcon>
-            <GoCard>바로가기</GoCard>
             <CardText>
               <h3>창업문의</h3>
               <p>
                 함께 성장하는 아임일리터와 <br /> 성공창업의 꿈을 이루세요
               </p>
             </CardText>
+            <GoCard>바로가기</GoCard>
           </Card>
         </Franchise>
       </ContentWrap>
       <Footer>
         <div className="layout">
-
-				</div>
+          <img src="image/logo-full-white.png" alt="흰색 글씨 로고" />
+          <p>법인명 : (주)아임일리터 | 대표자 : 임시훈</p>
+          <p>주소지 : 대전광역시 중구 대종로 451, 3층 </p>
+          <p>
+            TEL : 1600-1061 | FAX : 042-252-1126 | Email : im1lcoffee@naver.com{' '}
+          </p>
+          <Snsicon>
+            <a href="#">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="#">
+              <i className="fab fa-youtube"></i>
+            </a>
+            <a href="#">
+              <i className="fas fa-blog"></i>
+            </a>
+          </Snsicon>
+        </div>
       </Footer>
     </Wrapper>
   );
