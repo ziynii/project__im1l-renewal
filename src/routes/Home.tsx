@@ -140,12 +140,82 @@ const Interior = styled.div`
     padding: 3.5em 4em;
     h3 {
       font-size: 1.8em;
-			font-weight: 700;
+      font-weight: 700;
     }
     p {
       font-size: 0.9em;
       color: gray;
     }
+  }
+`;
+
+const Franchise = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Card = styled.div`
+  flex-basis: 23%;
+  background-color: #f1f1f1;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.2em 1.2em;
+  border-radius: 8px;
+`;
+
+const CardIcon = styled.span`
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: ${(props) => props.theme.textColor};
+  background-color: white;
+  font-size: 3em;
+  margin-bottom: 1.6rem;
+`;
+
+const GoCard = styled.a.attrs({ href: '#' })`
+  background-color: ${(props) => props.theme.mainColor};
+  padding: 0.4em 0.8em;
+  border-radius: 16px;
+  font-size: 0.9em;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+	transition: background-color 150ms;
+  &:hover {
+    background-color: ${(props) => props.theme.textColor};
+  }
+`;
+
+const CardText = styled.div`
+  h3 {
+    color: ${(props) => props.theme.textColor};
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+  p {
+    color: gray;
+    font-size: 0.9em;
+    font-weight: 400;
+  }
+`;
+
+const Footer = styled.footer`
+  padding: 1.5em 2em;
+  margin-top: 4.8em;
+  background-color: ${(props) => props.theme.textColor};
+  .layout {
+    max-width: 1280px;
+    margin: 0 auto;
   }
 `;
 
@@ -249,7 +319,60 @@ const Home = ({ menus }: IHomeProps) => {
         <ContentCaption>
           함께 성장하는 아임일리터와 창업성공의 꿈을 이루세요.
         </ContentCaption>
+        <Franchise>
+          <Card>
+            <CardIcon>
+              <i className="fas fa-store"></i>
+            </CardIcon>
+            <GoCard>바로가기</GoCard>
+            <CardText>
+              <h3>창업절차</h3>
+              <p>
+                아임일리터 가맹점 <br /> 창업절차입니다.
+              </p>
+            </CardText>
+          </Card>
+          <Card>
+            <CardIcon>
+              <i className="fas fa-coins"></i>
+            </CardIcon>
+            <GoCard>바로가기</GoCard>
+            <CardText>
+              <h3>창업비용</h3>
+              <p>
+                아임일리터 창업에 들어가는 <br /> 창업비용입니다.
+              </p>
+            </CardText>
+          </Card>
+          <Card>
+            <CardIcon>
+              <i className="fas fa-question"></i>
+            </CardIcon>
+            <GoCard>바로가기</GoCard>
+            <CardText>
+              <h3>FAQ</h3>
+              <p>
+                예비 창업자분들이 <br /> 자주 하시는 질문입니다.
+              </p>
+            </CardText>
+          </Card>
+          <Card>
+            <CardIcon>
+              <i className="far fa-comments"></i>
+            </CardIcon>
+            <GoCard>바로가기</GoCard>
+            <CardText>
+              <h3>창업문의</h3>
+              <p>
+                함께 성장하는 아임일리터와 <br /> 성공창업의 꿈을 이루세요
+              </p>
+            </CardText>
+          </Card>
+        </Franchise>
       </ContentWrap>
+      <Footer>
+        <div className="layout"></div>
+      </Footer>
     </Wrapper>
   );
 };
