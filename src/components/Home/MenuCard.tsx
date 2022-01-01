@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { IMenu } from '../data';
+import { IMenu } from '../../data';
 
 interface IMenuCardProps {
   menu: IMenu;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import MenuCard from '../components/MenuCard';
+import MenuCard from '../components/Home/MenuCard';
 import { IMenu } from '../data';
 
 interface IHomeProps {
@@ -190,7 +190,7 @@ const GoCard = styled.a.attrs({ href: '#' })`
   font-size: 0.9em;
   font-weight: 400;
   margin-bottom: 0.8rem;
-	transition: background-color 150ms;
+  transition: background-color 150ms;
   &:hover {
     background-color: ${(props) => props.theme.textColor};
   }
@@ -228,8 +228,6 @@ const Home = ({ menus }: IHomeProps) => {
   const mdMenu = menus.filter((menu) => {
     return menu.category === 'md';
   });
-
-  console.log(mdMenu);
 
   return (
     <Wrapper>
@@ -371,7 +369,9 @@ const Home = ({ menus }: IHomeProps) => {
         </Franchise>
       </ContentWrap>
       <Footer>
-        <div className="layout"></div>
+        <div className="layout">
+
+				</div>
       </Footer>
     </Wrapper>
   );
