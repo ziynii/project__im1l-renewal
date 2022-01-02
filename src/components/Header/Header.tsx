@@ -11,6 +11,7 @@ const Wrapper = styled(motion.header)`
   position: fixed;
   top: 0;
   background-color: transparent;
+	z-index: 99;
 `;
 
 const Layout = styled.div`
