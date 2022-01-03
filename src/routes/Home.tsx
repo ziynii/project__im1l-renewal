@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { DragEvent, MouseEvent, useRef, useState } from 'react';
 import styled from 'styled-components';
 import MenuCard from '../components/Home/MenuCard';
 import { IMenu } from '../data';
@@ -101,7 +101,7 @@ const ItemList = styled.ul`
     border-radius: 16px;
   }
   &::-webkit-scrollbar {
-    height: 4px;
+    height: 2px;
   }
 `;
 
@@ -257,12 +257,44 @@ const Snsicon = styled.div`
 const Home = ({ menus }: IHomeProps) => {
   const [menuSelect, setMenuSelect] = useState<string>('coffee');
   const [menuTabNum, setMenuTabNum] = useState<number>(1);
+  const menuScrollRef = useRef<HTMLUListElement>(null);
+  const mdScrollRef = useRef<HTMLUListElement>(null);
+  const [isDrag, setIsDrag] = useState<boolean>(false);
+  const [startX, setStartX] = useState<number>(0);
   const filterMenu = menus.filter((menu) => {
     return menu.category === menuSelect;
   });
   const mdMenu = menus.filter((menu) => {
     return menu.category === 'md';
   });
+
+  const onDragStart = (scrollRef: any, event: MouseEvent<HTMLUListElement>) => {
+    event.preventDefault();
+    setIsDrag(true);
+    if (scrollRef && scrollRef.current) {
+      setStartX(event.pageX + scrollRef.current?.scrollLeft);
+    }
+  };
+
+  const onDragMove = (scrollRef: any, event: MouseEvent<HTMLUListElement>) => {
+    if (!isDrag) return;
+
+    if (scrollRef && scrollRef.current) {
+      const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
+
+      scrollRef.current.scrollLeft = startX - event.pageX;
+
+      if (scrollLeft === 0) {
+        setStartX(event.pageX);
+      } else if (scrollWidth <= clientWidth + scrollLeft) {
+        setStartX(event.pageX + scrollLeft);
+      }
+    }
+  };
+
+  const onDragEnd = () => {
+    setIsDrag(false);
+  };
 
   return (
     <Wrapper>
@@ -309,7 +341,13 @@ const Home = ({ menus }: IHomeProps) => {
             tea
           </MenuBtn>
         </MenuBtns>
-        <ItemList>
+        <ItemList
+          ref={menuScrollRef}
+          onMouseDown={(event) => onDragStart(menuScrollRef, event)}
+          onMouseMove={(event) => onDragMove(menuScrollRef, event)}
+          onMouseLeave={onDragEnd}
+          onMouseUp={onDragEnd}
+        >
           {filterMenu.map((menu) => (
             <MenuCard key={menu.id} menu={menu} />
           ))}
@@ -320,7 +358,13 @@ const Home = ({ menus }: IHomeProps) => {
         <ContentCaption>
           다양한 상품들로 언제 어디서나 아임일리터와 함께하세요.
         </ContentCaption>
-        <MdList>
+        <MdList
+          ref={mdScrollRef}
+          onMouseDown={(event) => onDragStart(mdScrollRef, event)}
+          onMouseMove={(event) => onDragMove(mdScrollRef, event)}
+          onMouseLeave={onDragEnd}
+          onMouseUp={onDragEnd}
+        >
           {mdMenu.map((menu) => (
             <MenuCard key={menu.id} menu={menu} />
           ))}
