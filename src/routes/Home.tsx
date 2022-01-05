@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 const MainBanner = styled.div`
   width: 100%;
   height: 700px;
-  background-image: url('image/bg.jpg');
+  background-image: url('/image/bg.jpg');
   background-size: cover;
   background-position: center center;
   display: flex;
