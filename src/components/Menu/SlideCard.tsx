@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { IMenu } from '../../data';
 
@@ -42,11 +43,13 @@ const TextWrap = styled.div`
 const SlideCard = ({ menu, setSelectedMenu }: ISlideProps) => {
   return (
     <Item onClick={() => setSelectedMenu(menu.id)}>
-      <img src={menu.url} alt={menu.name} />
-      <TextWrap>
-        <h4>{menu.name}</h4>
-        <p>{menu.option}</p>
-      </TextWrap>
+      <Link to={`/menu/${menu.id}`}>
+				<img src={menu.url} alt={menu.name} />
+				<TextWrap>
+					<h4>{menu.name}</h4>
+					<p>{menu.option}</p>
+				</TextWrap>
+			</Link>
     </Item>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { IMenu } from '../../data';
 
@@ -30,7 +31,7 @@ const Item = styled.li`
     display: flex;
     justify-content: center;
     align-items: flex-end;
-		padding-bottom: 24px;
+    padding-bottom: 24px;
     background: linear-gradient(transparent 10%, rgba(237, 164, 131, 1) 90%);
     opacity: 0;
     transition: opacity 150ms ease-in;
@@ -78,7 +79,9 @@ const MenuCard = ({ menu }: IMenuCardProps) => {
         <p>{menu.option || menu.desciption}</p>
       </TextWrap>
       <div className="hover__content">
-        <button className="go">자세히 보기</button>
+        <Link to={`/menu/${menu.id}`}>
+          <button className="go">자세히 보기</button>
+        </Link>
       </div>
     </Item>
   );

@@ -11,11 +11,11 @@ const Wrapper = styled(motion.header)`
   position: fixed;
   top: 0;
   background-color: transparent;
-	z-index: 99;
+  z-index: 99;
 `;
 
 const Layout = styled.div`
-  width: 1280px;
+  max-width: 1280px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,6 +66,7 @@ const AllMenuBtn = styled.button<{ navTextColor: string }>`
 const navVariants = {
   top: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
+    boxShadow: 'none',
     transition: {
       type: 'tween',
       duration: 0,
@@ -73,6 +74,8 @@ const navVariants = {
   },
   scroll: {
     backgroundColor: 'rgba(255,255,255,1)',
+    boxShadow:
+      '0px 7px 20px 0px rgba(180,180,180,0.47)',
     transition: {
       type: 'tween',
       duration: 0,
@@ -88,7 +91,7 @@ const Header = () => {
 
   useEffect(() => {
     scrollY.onChange(() => {
-      if (scrollY.get() > 160) {
+      if (scrollY.get() > 180) {
         navAnimation.start('scroll');
         setNavTextColor('black');
       } else {
@@ -102,7 +105,9 @@ const Header = () => {
     <Wrapper variants={navVariants} animate={navAnimation} initial={'top'}>
       <Layout>
         <Logo>
-          <img src="logo.png" alt="" />
+          <Link to="/">
+            <img src="/logo.png" alt="아임일리터 로고" />
+          </Link>
         </Logo>
         <Nav navTextColor={navTextColor}>
           <Item>
@@ -112,7 +117,7 @@ const Header = () => {
             <Link to="/">franchise</Link>
           </Item>
           <Item>
-            <Link to="/menu">menu</Link>
+            <Link to="/menu/1">menu</Link>
           </Item>
           <Item>
             <Link to="/">store</Link>

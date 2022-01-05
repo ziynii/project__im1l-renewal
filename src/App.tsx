@@ -13,7 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home menus={menus} />} />
-          <Route path="/menu" element={<Menu menus={menus} />} />
+          <Route path="/menu/:menuId" element={<Menu menus={menus} />} />
         </Routes>
       </BrowserRouter>
     </>
