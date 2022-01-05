@@ -4,12 +4,14 @@ import Header from './components/Header/Header';
 import data, { IMenu } from './data';
 import Home from './routes/Home';
 import Menu from './routes/Menu';
+import ScrollToTop from './scrollToTop';
 
 function App() {
   const [menus, setMenus] = useState<IMenu[]>(data);
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Home menus={menus} />} />
@@ -21,5 +23,3 @@ function App() {
 }
 
 export default App;
-
-
