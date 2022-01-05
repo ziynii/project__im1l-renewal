@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Footer from '../components/Home/Footer';
 import SlideCard from '../components/Menu/SlideCard';
@@ -71,7 +71,7 @@ const SelectedMenuCard = styled.div`
     width: 50%;
   }
   .image__box {
-		text-align: center;
+    text-align: center;
     background-color: #eee;
     img {
       height: 100%;
@@ -98,7 +98,7 @@ const SelectedMenuCard = styled.div`
       justify-self: flex-end;
       font-size: 0.9em;
       line-height: 1.2rem;
-			white-space: pre-wrap;
+      white-space: pre-wrap;
     }
   }
 `;
@@ -144,21 +144,32 @@ const SLIDE_MOVING_UNIT = 450;
 const IMG_WIDTH = 200;
 
 const Menu = ({ menus }: IMenuProps) => {
-  const [selectedMenu, setSelectedMenu] = useState<number>(1);
+  const { menuId } = useParams();
+  const [isChangeCate, setIsChangeCate] = useState<boolean>(false);
+  const [selectedMenu, setSelectedMenu] = useState<number>(Number(menuId));
   const [selectedCategory, setSelecedtCategory] = useState<string>('coffee');
   const filterMenus = menus.filter((menu) => {
     return selectedCategory === menu.category;
   });
+
   const bigCard = menus.find((menu) => {
     return menu.id === selectedMenu;
   });
   const handleSelect = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelecedtCategory(event.target.value);
     setSlideSpot(0);
+    setIsChangeCate(true);
   };
 
   useEffect(() => {
-    setSelectedMenu(filterMenus[0].id);
+    setSelecedtCategory(bigCard?.category! as string);
+    setSelectedMenu(Number(menuId));
+  }, []);
+
+  useEffect(() => {
+    if (isChangeCate) {
+      setSelectedMenu(filterMenus[0].id);
+    }
   }, [selectedCategory]);
 
   // slide
