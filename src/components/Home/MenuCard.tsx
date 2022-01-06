@@ -79,7 +79,7 @@ const MenuCard = ({ menu }: IMenuCardProps) => {
         <p>{menu.option || menu.desciption}</p>
       </TextWrap>
       <div className="hover__content">
-        <Link to={`/menu/${menu.id}`}>
+        <Link to={menu.category !== 'md' ? `/menu/${menu.id}` : '/'}>
           <button className="go">자세히 보기</button>
         </Link>
       </div>
