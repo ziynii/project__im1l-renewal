@@ -147,6 +147,24 @@ const Wrapper = styled.div`
       width: 90%;
     }
   }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    height: 1600px;
+    ${SelectedMenuCard} {
+      flex-direction: column;
+      height: 100%;
+      .image__box,
+      .description__box {
+        width: 100%;
+      }
+      .description__box {
+        padding: 3.2em 2.4em;
+        p {
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
 `;
 
 const SLIDE_GAP = 16;

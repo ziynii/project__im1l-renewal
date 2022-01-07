@@ -143,7 +143,7 @@ const Interior = styled.div`
     p {
       font-size: 0.9em;
       color: gray;
-			line-height: 1.4em;
+      line-height: 1.4em;
     }
   }
 `;
@@ -219,12 +219,31 @@ const Wrapper = styled.div`
       .interior__right {
         flex-basis: 100%;
       }
-			.interior__right {
-				padding : 2.5em 3em;
-				p {
-					margin-top: 1.2em;
-				}
-			}
+      .interior__right {
+        p {
+          margin-top: 1.2em;
+        }
+      }
+    }
+  }
+  @media ${({ theme }) => theme.device.mobile} {
+    ${MainTitle} {
+      margin-left: 80px;
+    }
+    ${Franchise} {
+      flex-direction: column;
+    }
+    ${Card} {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      &:not(last-child) {
+        margin-bottom: 0.5rem;
+      }
+    }
+    ${CardIcon} {
+      margin-bottom: 0;
     }
   }
 `;
