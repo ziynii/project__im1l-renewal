@@ -144,7 +144,7 @@ const Wrapper = styled.div`
       width: 100%;
     }
     ${SelectedMenuCard} {
-			width : 100%;
+      width: 90%;
     }
   }
 `;
@@ -175,6 +175,14 @@ const Menu = ({ menus }: IMenuProps) => {
     setSelecedtCategory(bigCard?.category! as string);
     setSelectedMenu(Number(menuId));
   }, []);
+
+  useEffect(() => {
+    setSelectedMenu(Number(menuId));
+  }, [menuId]);
+
+  useEffect(() => {
+    setSelecedtCategory(bigCard?.category! as string);
+  }, [selectedMenu]);
 
   useEffect(() => {
     if (isChangeCate) {
