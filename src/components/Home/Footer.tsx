@@ -1,23 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Wrapper = styled.footer`
-  padding: 3.6em 0;
-  margin-top: 4.8em;
-  background-color: ${(props) => props.theme.textColor};
-  .layout {
-    max-width: 1280px;
-    margin: 0 auto;
-    img {
-      width: 180px;
-      margin-bottom: 1.2em;
-    }
-    p {
-      margin-top: 0.8rem;
-      font-size: 0.9em;
-    }
-  }
-`;
+
 
 const Snsicon = styled.div`
   display: flex;
@@ -43,6 +27,28 @@ const Snsicon = styled.div`
   svg {
     font-size: 18px;
   }
+`;
+
+const Wrapper = styled.footer`
+  padding: 3.6em 0;
+  margin-top: 4.8em;
+  background-color: ${(props) => props.theme.textColor};
+  .layout {
+    max-width: 1280px;
+    margin: 0 auto;
+    img {
+      width: 180px;
+      margin-bottom: 1.2em;
+    }
+    p {
+      margin-top: 0.8rem;
+      font-size: 0.9em;
+    }
+  }
+
+	@media ${({theme}) => theme.device.tablet} {
+		padding: 3em 2em;
+	}
 `;
 
 const Footer = () => {

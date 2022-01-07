@@ -56,6 +56,9 @@ body {
 	color: white;
 	line-height: 1.2;
 	font-family: 'Noto Sans KR', sans-serif;
+	@media screen and (max-width : 1023px) {
+		font-size: 14px;
+	}
 }
 a {
 	text-decoration: none;

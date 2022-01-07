@@ -9,10 +9,6 @@ interface IHomeProps {
   menus: IMenu[];
 }
 
-const Wrapper = styled.div`
-  height: 100%;
-`;
-
 const MainBanner = styled.div`
   width: 100%;
   height: 700px;
@@ -147,6 +143,7 @@ const Interior = styled.div`
     p {
       font-size: 0.9em;
       color: gray;
+			line-height: 1.4em;
     }
   }
 `;
@@ -208,6 +205,27 @@ const CardText = styled.div`
     color: gray;
     font-size: 0.9em;
     font-weight: 400;
+  }
+`;
+
+const Wrapper = styled.div`
+  height: 100%;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    ${Interior} {
+      flex-direction: column;
+      height: 100%;
+      .interior__left,
+      .interior__right {
+        flex-basis: 100%;
+      }
+			.interior__right {
+				padding : 2.5em 3em;
+				p {
+					margin-top: 1.2em;
+				}
+			}
+    }
   }
 `;
 

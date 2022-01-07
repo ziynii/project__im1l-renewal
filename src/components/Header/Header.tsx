@@ -5,15 +5,6 @@ import '@fortawesome/fontawesome-free/js/all.js';
 import { Link } from 'react-router-dom';
 import AllMenu from './AllMenu';
 
-const Wrapper = styled(motion.header)`
-  width: 100%;
-  padding: 16px 24px;
-  position: fixed;
-  top: 0;
-  background-color: transparent;
-  z-index: 99;
-`;
-
 const Layout = styled.div`
   max-width: 1280px;
   display: flex;
@@ -63,6 +54,21 @@ const AllMenuBtn = styled.button<{ navTextColor: string }>`
   }
 `;
 
+const Wrapper = styled(motion.header)`
+  width: 100%;
+  padding: 16px 24px;
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  z-index: 99;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    ${Nav} {
+      display: none;
+    }
+  }
+`;
+
 const navVariants = {
   top: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -74,8 +80,7 @@ const navVariants = {
   },
   scroll: {
     backgroundColor: 'rgba(255,255,255,1)',
-    boxShadow:
-      '0px 7px 20px 0px rgba(180,180,180,0.47)',
+    boxShadow: '0px 7px 20px 0px rgba(180,180,180,0.47)',
     transition: {
       type: 'tween',
       duration: 0,

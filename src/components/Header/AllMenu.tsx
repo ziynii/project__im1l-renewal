@@ -7,19 +7,6 @@ interface IAllMenuProps {
   setOpenAllMenu: (prev: boolean) => void;
 }
 
-const Wrapper = styled.div`
-  background-color: black;
-  width: 100vw;
-  height: 100vh;
-  color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const CloseBtn = styled.button`
   position: absolute;
   top: 30px;
@@ -38,33 +25,44 @@ const CloseBtn = styled.button`
   }
 `;
 
-const TitleWrap = styled(motion.div)`
-  flex-basis: 50%;
-  text-align: left;
-  font-size: 52px;
-  font-weight: 500;
-  line-height: 2;
-  margin-left: 140px;
+const ItemWrap = styled(motion.ul)`
+  width: 100%;
+  height: 100%;
+  margin-left: 420px;
+  margin-top: 100px;
 `;
 
-const ItemTitle = styled(motion.h2)<{ tabNum: number }>`
+const ItemTitle = styled(motion.li)<{ tabnum: number }>`
   color: white;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 150ms ease;
-  &:hover {
+  text-align: left;
+  font-size: 3.2em;
+  font-weight: 500;
+  line-height: 2;
+  h2 {
+    transition: all 150ms ease;
+  }
+  &:hover h2 {
     color: ${(props) => props.theme.mainColor};
     margin-left: 20px;
   }
-  &:nth-child(${(props) => props.tabNum}) {
+  &:nth-child(${(props) => props.tabnum}) h2 {
     color: ${(props) => props.theme.mainColor};
     margin-left: 20px;
   }
+	&:not(:nth-child(${(props) => props.tabnum})) h2{
+		color: #c9c6c6
+	}
 `;
 
-const ContentWrap = styled(motion.div)`
+const Items = styled.ul`
   flex-basis: 50%;
   text-align: left;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 420px;
 `;
 
 const Snsicon = styled.div`
@@ -73,13 +71,17 @@ const Snsicon = styled.div`
   position: absolute;
   bottom: 60px;
   right: 140px;
-  a {
+
+  button {
     border: 1px solid lightgray;
+    outline: none;
+    background-color: transparent;
     border-radius: 50%;
     padding: 8px;
     color: lightgray;
     text-align: center;
     transition: all 150ms;
+    cursor: pointer;
     &:hover {
       color: ${(props) => props.theme.mainColor};
       border: 1px solid ${(props) => props.theme.mainColor};
@@ -90,6 +92,28 @@ const Snsicon = styled.div`
   }
   svg {
     font-size: 18px;
+  }
+`;
+
+const Wrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    ${ItemWrap} {
+      margin-left: 140px;
+    }
+    ${Items} {
+      position: relative;
+      top: 0;
+      right: 0;
+      transform: none;
+    }
   }
 `;
 
@@ -115,65 +139,66 @@ const titleVars = {
 };
 
 const AllMenu = ({ setOpenAllMenu }: IAllMenuProps) => {
-  const [tabNum, setTabNum] = useState<number>(0);
-
+  const [tabnum, settabnum] = useState<number>(0);
   return (
     <Wrapper>
       <CloseBtn onClick={() => setOpenAllMenu(false)}>
         <i className="fas fa-times"></i>
       </CloseBtn>
-      <TitleWrap variants={titleWrapVars} initial="init" animate="animate">
+      <ItemWrap variants={titleWrapVars} initial="init" animate="animate">
         <ItemTitle
-          tabNum={tabNum}
+          tabnum={tabnum}
           variants={titleVars}
           onClick={() => {
-            setTabNum(1);
+            settabnum(1);
           }}
         >
-          im1l coffee
+          <h2>im1l coffee</h2>
+          <Items>{tabnum === 1 ? <AllMenuTab tabnum={tabnum} /> : null}</Items>
         </ItemTitle>
         <ItemTitle
-          tabNum={tabNum}
+          tabnum={tabnum}
           variants={titleVars}
-          onClick={() => setTabNum(2)}
+          onClick={() => settabnum(2)}
         >
-          franchise
+          <h2>franchise</h2>
+          <Items>{tabnum === 2 ? <AllMenuTab tabnum={tabnum} /> : null}</Items>
         </ItemTitle>
         <ItemTitle
-          tabNum={tabNum}
+          tabnum={tabnum}
           variants={titleVars}
-          onClick={() => setTabNum(3)}
+          onClick={() => settabnum(3)}
         >
-          menu
+          <h2>menu</h2>
+          <Items>{tabnum === 3 ? <AllMenuTab tabnum={tabnum} /> : null}</Items>
         </ItemTitle>
         <ItemTitle
-          tabNum={tabNum}
+          tabnum={tabnum}
           variants={titleVars}
-          onClick={() => setTabNum(4)}
+          onClick={() => settabnum(4)}
         >
-          store
+          <h2>store</h2>
+          <Items>{tabnum === 4 ? <AllMenuTab tabnum={tabnum} /> : null}</Items>
         </ItemTitle>
         <ItemTitle
-          tabNum={tabNum}
+          tabnum={tabnum}
           variants={titleVars}
-          onClick={() => setTabNum(5)}
+          onClick={() => settabnum(5)}
         >
-          news
+          <h2>news</h2>
+          <Items>{tabnum === 5 ? <AllMenuTab tabnum={tabnum} /> : null}</Items>
         </ItemTitle>
-      </TitleWrap>
-      <ContentWrap>
-        {tabNum ? <AllMenuTab tabNum={tabNum} /> : null}
-      </ContentWrap>
+      </ItemWrap>
       <Snsicon>
-        <a href="#">
+        <button>
           <i className="fab fa-instagram"></i>
-        </a>
-        <a href="#">
+        </button>
+        <button>
           <i className="fab fa-youtube"></i>
-        </a>
-        <a href="#">
+        </button>
+        <button>
           <i className="fas fa-blog"></i>
-        </a>
+        </button>
       </Snsicon>
     </Wrapper>
   );

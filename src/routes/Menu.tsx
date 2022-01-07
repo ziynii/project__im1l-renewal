@@ -9,12 +9,6 @@ interface IMenuProps {
   menus: IMenu[];
 }
 
-const Wrapper = styled.div`
-  width: 100%;
-  height: 1300px;
-  position: relative;
-`;
-
 const TopBg = styled.div`
   width: 100%;
   height: 300px;
@@ -23,7 +17,8 @@ const TopBg = styled.div`
 `;
 
 const MenuContent = styled.div`
-  width: 1280px;
+  max-width: 1280px;
+  padding: 1.8em 2em;
   background-color: white;
   position: absolute;
   top: 200px;
@@ -136,6 +131,21 @@ const SlideBtns = styled.div`
   }
   .next__btn {
     right: 2%;
+  }
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 1300px;
+  position: relative;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    ${MenuContent} {
+      width: 100%;
+    }
+    ${SelectedMenuCard} {
+			width : 100%;
+    }
   }
 `;
 
