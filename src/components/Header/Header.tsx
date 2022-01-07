@@ -138,7 +138,7 @@ const Header = () => {
           <i className="fas fa-bars"></i>
         </AllMenuBtn>
       </Layout>
-      {openAllMenu ? <AllMenu setOpenAllMenu={setOpenAllMenu} /> : null}
+      {openAllMenu ? <AllMenu  setOpenAllMenu={setOpenAllMenu} /> : null}
     </Wrapper>
   );
 };

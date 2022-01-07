@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface ITabProps {
   tabnum: number;
+  setOpenAllMenu: (prev: boolean) => void;
 }
 
 const Item = styled.li`
@@ -19,7 +21,7 @@ const Item = styled.li`
   }
 `;
 
-const AllMenuTab = ({ tabnum }: ITabProps) => {
+const AllMenuTab = ({ tabnum, setOpenAllMenu }: ITabProps) => {
   if (tabnum === 1) {
     return (
       <>
@@ -40,9 +42,21 @@ const AllMenuTab = ({ tabnum }: ITabProps) => {
   } else if (tabnum === 3) {
     return (
       <>
-        <Item>커피</Item>
-        <Item>음료</Item>
-        <Item>디저트</Item>
+        <Item>
+          <Link to="/menu/1" onClick={() => setOpenAllMenu(false)}>
+            커피
+          </Link>
+        </Item>
+        <Item>
+          <Link to="/menu/16" onClick={() => setOpenAllMenu(false)}>
+            음료
+          </Link>
+        </Item>
+        <Item>
+          <Link to="/menu/55" onClick={() => setOpenAllMenu(false)}>
+            디저트
+          </Link>
+        </Item>
       </>
     );
   } else if (tabnum === 4) {

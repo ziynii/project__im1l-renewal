@@ -51,9 +51,9 @@ const ItemTitle = styled(motion.li)<{ tabnum: number }>`
     color: ${(props) => props.theme.mainColor};
     margin-left: 20px;
   }
-	&:not(:nth-child(${(props) => props.tabnum})) h2{
-		color: #c9c6c6
-	}
+  &:not(:nth-child(${(props) => props.tabnum})) h2 {
+    color: #c9c6c6;
+  }
 `;
 
 const Items = styled.ul`
@@ -154,7 +154,11 @@ const AllMenu = ({ setOpenAllMenu }: IAllMenuProps) => {
           }}
         >
           <h2>im1l coffee</h2>
-          <Items>{tabnum === 1 ? <AllMenuTab tabnum={tabnum} /> : null}</Items>
+          <Items>
+            {tabnum === 1 ? (
+              <AllMenuTab setOpenAllMenu={setOpenAllMenu} tabnum={tabnum} />
+            ) : null}
+          </Items>
         </ItemTitle>
         <ItemTitle
           tabnum={tabnum}
@@ -162,7 +166,11 @@ const AllMenu = ({ setOpenAllMenu }: IAllMenuProps) => {
           onClick={() => settabnum(2)}
         >
           <h2>franchise</h2>
-          <Items>{tabnum === 2 ? <AllMenuTab tabnum={tabnum} /> : null}</Items>
+          <Items>
+            {tabnum === 2 ? (
+              <AllMenuTab setOpenAllMenu={setOpenAllMenu} tabnum={tabnum} />
+            ) : null}
+          </Items>
         </ItemTitle>
         <ItemTitle
           tabnum={tabnum}
@@ -170,7 +178,11 @@ const AllMenu = ({ setOpenAllMenu }: IAllMenuProps) => {
           onClick={() => settabnum(3)}
         >
           <h2>menu</h2>
-          <Items>{tabnum === 3 ? <AllMenuTab tabnum={tabnum} /> : null}</Items>
+          <Items>
+            {tabnum === 3 ? (
+              <AllMenuTab setOpenAllMenu={setOpenAllMenu} tabnum={tabnum} />
+            ) : null}
+          </Items>
         </ItemTitle>
         <ItemTitle
           tabnum={tabnum}
@@ -178,7 +190,11 @@ const AllMenu = ({ setOpenAllMenu }: IAllMenuProps) => {
           onClick={() => settabnum(4)}
         >
           <h2>store</h2>
-          <Items>{tabnum === 4 ? <AllMenuTab tabnum={tabnum} /> : null}</Items>
+          <Items>
+            {tabnum === 4 ? (
+              <AllMenuTab setOpenAllMenu={setOpenAllMenu} tabnum={tabnum} />
+            ) : null}
+          </Items>
         </ItemTitle>
         <ItemTitle
           tabnum={tabnum}
@@ -186,7 +202,11 @@ const AllMenu = ({ setOpenAllMenu }: IAllMenuProps) => {
           onClick={() => settabnum(5)}
         >
           <h2>news</h2>
-          <Items>{tabnum === 5 ? <AllMenuTab tabnum={tabnum} /> : null}</Items>
+          <Items>
+            {tabnum === 5 ? (
+              <AllMenuTab setOpenAllMenu={setOpenAllMenu} tabnum={tabnum} />
+            ) : null}
+          </Items>
         </ItemTitle>
       </ItemWrap>
       <Snsicon>
