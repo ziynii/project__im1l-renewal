@@ -70,7 +70,8 @@ const SelectedMenuCard = styled.div`
     background-color: #eee;
     img {
       height: 100%;
-    }
+			max-width: 100%;
+		}
   }
   .description__box {
     color: ${(props) => props.theme.textColor};
