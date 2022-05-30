@@ -183,6 +183,7 @@ const CardIcon = styled.span`
 `;
 
 const GoCard = styled.a.attrs({ href: '#' })`
+  flex-shrink: 0;
   background-color: ${(props) => props.theme.mainColor};
   padding: 0.4em 0.8em;
   border-radius: 16px;
@@ -230,20 +231,38 @@ const Wrapper = styled.div`
     ${MainTitle} {
       margin-left: 80px;
     }
+
     ${Franchise} {
       flex-direction: column;
     }
+
     ${Card} {
       width: 100%;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+
       &:not(last-child) {
         margin-bottom: 0.5rem;
       }
     }
+
     ${CardIcon} {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
       margin-bottom: 0;
+      font-size: 2.4em;
+    }
+
+    ${CardText} {
+      flex-grow: 1;
+      text-align: left;
+			margin-left: 8px;
+
+      p {
+        font-size: 0.7em;
+      }
     }
   }
 `;

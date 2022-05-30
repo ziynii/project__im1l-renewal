@@ -15,10 +15,12 @@ const CloseBtn = styled.button`
   border: 0;
   outline: none;
   cursor: pointer;
+
   svg {
     color: white;
     font-size: 22px;
     transition: color 150ms;
+
     &:hover {
       color: ${(props) => props.theme.mainColor};
     }
@@ -40,17 +42,21 @@ const ItemTitle = styled(motion.li)<{ tabnum: number }>`
   font-size: 3.2em;
   font-weight: 500;
   line-height: 2;
+
   h2 {
     transition: all 150ms ease;
   }
+
   &:hover h2 {
     color: ${(props) => props.theme.mainColor};
     margin-left: 20px;
   }
+
   &:nth-child(${(props) => props.tabnum}) h2 {
     color: ${(props) => props.theme.mainColor};
     margin-left: 20px;
   }
+
   &:not(:nth-child(${(props) => props.tabnum})) h2 {
     color: #c9c6c6;
   }
@@ -82,14 +88,17 @@ const Snsicon = styled.div`
     text-align: center;
     transition: all 150ms;
     cursor: pointer;
+
     &:hover {
       color: ${(props) => props.theme.mainColor};
       border: 1px solid ${(props) => props.theme.mainColor};
     }
+
     &:not(:last-child) {
       margin-bottom: 16px;
     }
   }
+
   svg {
     font-size: 18px;
   }
@@ -106,13 +115,49 @@ const Wrapper = styled.div`
 
   @media ${({ theme }) => theme.device.tablet} {
     ${ItemWrap} {
-      margin-left: 140px;
+      margin-left: 48px;
+      margin-top: 80px;
     }
+
     ${Items} {
       position: relative;
       top: 0;
       right: 0;
       transform: none;
+    }
+
+    ${Snsicon} {
+      right: 48px;
+    }
+
+    ${CloseBtn} {
+      right: 48px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    ${ItemWrap} {
+      margin-left: 24px;
+      margin-top: 80px;
+    }
+
+    ${Items} {
+      position: relative;
+      top: 0;
+      right: 0;
+      transform: none;
+    }
+
+    ${Snsicon} {
+      right: 24px;
+    }
+
+    ${CloseBtn} {
+      right: 24px;
+    }
+
+    ${ItemTitle} {
+      font-size: 2.4em;
     }
   }
 `;
@@ -121,6 +166,7 @@ const titleWrapVars = {
   init: {
     opacity: 0,
   },
+
   animate: {
     opacity: 1,
     transition: {
@@ -133,6 +179,7 @@ const titleVars = {
   init: {
     opacity: 0,
   },
+
   animate: {
     opacity: 1,
   },
