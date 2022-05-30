@@ -1,8 +1,8 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Footer from '../components/Home/Footer';
-import SlideCard from '../components/Menu/SlideCard';
+import MenuSlide from '../components/Menu/MenuSlide';
 import { IMenu } from '../data';
 
 interface IMenuProps {
@@ -70,8 +70,8 @@ const SelectedMenuCard = styled.div`
     background-color: #eee;
     img {
       height: 100%;
-			max-width: 100%;
-		}
+      max-width: 100%;
+    }
   }
   .description__box {
     color: ${(props) => props.theme.textColor};
@@ -96,42 +96,6 @@ const SelectedMenuCard = styled.div`
       line-height: 1.2rem;
       white-space: pre-wrap;
     }
-  }
-`;
-
-const SlideWrap = styled.div`
-  width: 100%;
-  height: 400px;
-  position: relative;
-  margin-top: 3.6em;
-  overflow: hidden;
-`;
-
-const MenuSlide = styled.ul`
-  display: flex;
-  transition: transform 150ms;
-`;
-
-const SlideBtns = styled.div`
-  button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    outline: none;
-    border: 0;
-    background-color: transparent;
-    font-size: 2.4em;
-    color: ${(props) => props.theme.mainColor};
-    cursor: pointer;
-    &:hover {
-      color: #c98c70;
-    }
-  }
-  .prev__btn {
-    left: 2%;
-  }
-  .next__btn {
-    right: 2%;
   }
 `;
 
@@ -168,15 +132,12 @@ const Wrapper = styled.div`
   }
 `;
 
-const SLIDE_GAP = 16;
-const SLIDE_MOVING_UNIT = 450;
-const IMG_WIDTH = 200;
-
 const Menu = ({ menus }: IMenuProps) => {
   const { menuId } = useParams();
   const [isChangeCate, setIsChangeCate] = useState<boolean>(false);
   const [selectedMenu, setSelectedMenu] = useState<number>(Number(menuId));
   const [selectedCategory, setSelecedtCategory] = useState<string>('coffee');
+  const [slideSpot, setSlideSpot] = useState<number>(0);
   const filterMenus = menus.filter((menu) => {
     return selectedCategory === menu.category;
   });
@@ -209,30 +170,6 @@ const Menu = ({ menus }: IMenuProps) => {
     }
   }, [selectedCategory]);
 
-  // slide
-  const [slideSpot, setSlideSpot] = useState<number>(0);
-  const slideRef = useRef<HTMLDivElement>(null);
-  const slideInnerWidth = slideRef.current?.clientWidth;
-  const imgQuantity = filterMenus.length;
-  const slideWidth = IMG_WIDTH * imgQuantity + (imgQuantity - 1) * SLIDE_GAP;
-  const hiddenSlideWidth = (slideWidth - slideInnerWidth!) as number;
-
-  const onClickPrevBtn = () => {
-    if (Math.abs(slideSpot) < SLIDE_MOVING_UNIT) {
-      setSlideSpot(0);
-    } else {
-      setSlideSpot(slideSpot + SLIDE_MOVING_UNIT);
-    }
-  };
-
-  const onClickNextBtn = () => {
-    if (hiddenSlideWidth - Math.abs(slideSpot) < SLIDE_MOVING_UNIT) {
-      setSlideSpot(slideSpot - (hiddenSlideWidth - Math.abs(slideSpot)));
-    } else {
-      setSlideSpot(slideSpot - SLIDE_MOVING_UNIT);
-    }
-  };
-
   return (
     <>
       <Wrapper>
@@ -264,25 +201,12 @@ const Menu = ({ menus }: IMenuProps) => {
               </div>
             </div>
           </SelectedMenuCard>
-          <SlideWrap ref={slideRef}>
-            <MenuSlide style={{ transform: `translateX(${slideSpot}px)` }}>
-              {filterMenus.map((menu) => (
-                <SlideCard
-                  menu={menu}
-                  key={menu.id}
-                  setSelectedMenu={setSelectedMenu}
-                />
-              ))}
-            </MenuSlide>
-            <SlideBtns>
-              <button className="prev__btn" onClick={onClickPrevBtn}>
-                <i className="fas fa-arrow-circle-left"></i>
-              </button>
-              <button className="next__btn" onClick={onClickNextBtn}>
-                <i className="fas fa-arrow-circle-right"></i>
-              </button>
-            </SlideBtns>
-          </SlideWrap>
+          <MenuSlide
+            slideSpot={slideSpot}
+            setSlideSpot={setSlideSpot}
+            filterMenus={filterMenus}
+            setSelectedMenu={setSelectedMenu}
+          />
         </MenuContent>
       </Wrapper>
       <Footer />
