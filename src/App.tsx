@@ -10,7 +10,7 @@ function App() {
   const [menus, setMenus] = useState<IMenu[]>(data);
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename='project__im1l-renewal'>
         <ScrollToTop />
         <Header />
         <Routes>
