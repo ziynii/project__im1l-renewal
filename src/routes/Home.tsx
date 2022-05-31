@@ -12,7 +12,7 @@ interface IHomeProps {
 const MainBanner = styled.div`
   width: 100%;
   height: 700px;
-  background-image: url('/image/bg.jpg');
+  background-image: url('https://ziynii.github.io/project__im1l-renewal/image/bg.jpg');
   background-size: cover;
   background-position: center center;
   display: flex;
@@ -258,7 +258,7 @@ const Wrapper = styled.div`
     ${CardText} {
       flex-grow: 1;
       text-align: left;
-			margin-left: 8px;
+      margin-left: 8px;
 
       p {
         font-size: 0.7em;

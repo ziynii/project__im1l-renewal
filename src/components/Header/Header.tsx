@@ -111,7 +111,10 @@ const Header = () => {
       <Layout>
         <Logo>
           <Link to="/">
-            <img src="/logo.png" alt="아임일리터 로고" />
+            <img
+              src={process.env.PUBLIC_URL + '/logo.png'}
+              alt="아임일리터 로고"
+            />
           </Link>
         </Logo>
         <Nav navTextColor={navTextColor}>
@@ -138,7 +141,7 @@ const Header = () => {
           <i className="fas fa-bars"></i>
         </AllMenuBtn>
       </Layout>
-      {openAllMenu ? <AllMenu  setOpenAllMenu={setOpenAllMenu} /> : null}
+      {openAllMenu ? <AllMenu setOpenAllMenu={setOpenAllMenu} /> : null}
     </Wrapper>
   );
 };

@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-
 const Snsicon = styled.div`
   display: flex;
   margin-top: 1.2rem;
@@ -46,16 +44,19 @@ const Wrapper = styled.footer`
     }
   }
 
-	@media ${({theme}) => theme.device.tablet} {
-		padding: 3em 2em;
-	}
+  @media ${({ theme }) => theme.device.tablet} {
+    padding: 3em 2em;
+  }
 `;
 
 const Footer = () => {
   return (
     <Wrapper>
       <div className="layout">
-        <img src="/image/logo-full-white.png" alt="흰색 글씨 로고" />
+        <img
+          src={process.env.PUBLIC_URL + '/image/logo-full-white.png'}
+          alt="흰색 글씨 로고"
+        />
         <p>법인명 : (주)아임일리터 | 대표자 : 임시훈</p>
         <p>주소지 : 대전광역시 중구 대종로 451, 3층 </p>
         <p>

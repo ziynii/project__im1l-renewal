@@ -12,7 +12,7 @@ interface IMenuProps {
 const TopBg = styled.div`
   width: 100%;
   height: 300px;
-  background-image: url(/image/menu_bg.jpg);
+  background-image: url('https://ziynii.github.io/project__im1l-renewal/image/menu_bg.jpg');
   background-position: center center;
 `;
 
