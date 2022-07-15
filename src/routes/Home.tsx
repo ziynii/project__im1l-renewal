@@ -4,6 +4,7 @@ import MenuCard from '../components/Home/MenuCard';
 import { IMenu } from '../data';
 import '@fortawesome/fontawesome-free/js/all.js';
 import Footer from '../components/Home/Footer';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 interface IHomeProps {
   menus: IMenu[];
@@ -311,6 +312,12 @@ const Home = ({ menus }: IHomeProps) => {
 
   return (
     <Wrapper>
+      <HelmetProvider>
+        <Helmet>
+          <title>IM1L COFFEE</title>
+        </Helmet>
+      </HelmetProvider>
+
       <MainBanner>
         <MainTitle>
           <p>IM1L COFFEE</p>

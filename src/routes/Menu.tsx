@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Footer from '../components/Home/Footer';
 import MenuSlide from '../components/Menu/MenuSlide';
 import { IMenu } from '../data';
+import {Helmet, HelmetProvider} from 'react-helmet-async'
 
 interface IMenuProps {
   menus: IMenu[];
@@ -172,6 +173,12 @@ const Menu = ({ menus }: IMenuProps) => {
 
   return (
     <>
+	<HelmetProvider>
+		<Helmet>
+			<title>{`IM1L COFFEE | ${bigCard?.name}`}</title>
+		</Helmet>
+	</HelmetProvider>
+
       <Wrapper>
         <TopBg></TopBg>
         <MenuContent>
