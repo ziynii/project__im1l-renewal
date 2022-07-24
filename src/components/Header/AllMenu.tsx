@@ -200,7 +200,7 @@ const AllMenu = ({ setOpenAllMenu }: IAllMenuProps) => {
             settabnum(1);
           }}
         >
-          <h2>im1l coffee</h2>
+          <h2>your1L coffee</h2>
           <Items>
             {tabnum === 1 ? (
               <AllMenuTab setOpenAllMenu={setOpenAllMenu} tabnum={tabnum} />

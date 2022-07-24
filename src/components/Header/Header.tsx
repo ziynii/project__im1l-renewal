@@ -119,7 +119,7 @@ const Header = () => {
         </Logo>
         <Nav navTextColor={navTextColor}>
           <Item>
-            <Link to="/">im1l coffee</Link>
+            <Link to="/">your1l coffee</Link>
           </Item>
           <Item>
             <Link to="/">franchise</Link>

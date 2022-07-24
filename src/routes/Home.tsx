@@ -315,13 +315,13 @@ const Home = ({ menus }: IHomeProps) => {
     <Wrapper>
       <HelmetProvider>
         <Helmet>
-          <title>IM1L COFFEE</title>
+          <title>YOUR1L COFFEE</title>
         </Helmet>
       </HelmetProvider>
 
       <MainBanner>
         <MainTitle>
-          <p>IM1L COFFEE</p>
+          <p>YOUR1L COFFEE</p>
           <h2>
             고객이 인정한 커피전문점, <br />
             <span>유어일리터</span>
@@ -329,7 +329,7 @@ const Home = ({ menus }: IHomeProps) => {
         </MainTitle>
       </MainBanner>
       <ContentWrap>
-        <ContnetTitle>im1l menu</ContnetTitle>
+        <ContnetTitle>your1l menu</ContnetTitle>
         <ContentCaption>
           고객을 위한 정성이 담긴 유어일리터의 메뉴입니다
         </ContentCaption>

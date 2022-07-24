@@ -175,7 +175,7 @@ const Menu = ({ menus }: IMenuProps) => {
     <>
 	<HelmetProvider>
 		<Helmet>
-			<title>{`IM1L COFFEE | ${bigCard?.name}`}</title>
+			<title>{`YOUR1L COFFEE | ${bigCard?.name}`}</title>
 		</Helmet>
 	</HelmetProvider>
 
