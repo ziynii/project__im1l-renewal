@@ -128,6 +128,7 @@ const Interior = styled.div`
     height: 100%;
     img {
       width: 100%;
+      height: 100%;
     }
   }
   .interior__right {
@@ -323,14 +324,14 @@ const Home = ({ menus }: IHomeProps) => {
           <p>IM1L COFFEE</p>
           <h2>
             고객이 인정한 커피전문점, <br />
-            <span>아임일리터</span>
+            <span>유어일리터</span>
           </h2>
         </MainTitle>
       </MainBanner>
       <ContentWrap>
         <ContnetTitle>im1l menu</ContnetTitle>
         <ContentCaption>
-          고객을 위한 정성이 담긴 아임일리터의 메뉴입니다
+          고객을 위한 정성이 담긴 유어일리터의 메뉴입니다
         </ContentCaption>
         <MenuBtns>
           <MenuBtn
@@ -376,7 +377,7 @@ const Home = ({ menus }: IHomeProps) => {
       <ContentWrap>
         <ContnetTitle>merchandiser</ContnetTitle>
         <ContentCaption>
-          다양한 상품들로 언제 어디서나 아임일리터와 함께하세요.
+          다양한 상품들로 언제 어디서나 유어일리터와 함께하세요.
         </ContentCaption>
         <MdList
           ref={mdScrollRef}
@@ -393,20 +394,23 @@ const Home = ({ menus }: IHomeProps) => {
       <ContentWrap>
         <ContnetTitle>interior</ContnetTitle>
         <ContentCaption>
-          세련되고 모던한 아임일리터의 인테리어입니다.
+          세련되고 모던한 유어일리터의 인테리어입니다.
         </ContentCaption>
         <Interior>
           <div className="interior__left">
-            <img src="image/interior.png" alt="내부 인테리어 이미지" />
+            <img
+              src={process.env.PUBLIC_URL + '/image/interior.png'}
+              alt="내부 인테리어 이미지"
+            />
           </div>
           <div className="interior__right">
             <h3>
-              편안하고 부드러운 감성, <br /> 아임일리터
+              편안하고 부드러운 감성, <br /> 유어일리터
             </h3>
             <p>
               화이트를 베이스 컬러로 우드톤을 포인트로 주어 <br />{' '}
               자연스러우면서도 답답하지 않도록 공간을 꾸몄습니다. <br /> 따뜻한
-              분위기의 아임일리터에서 즐거운 시간을 보내시길 바랍니다.
+              분위기의 유어일리터에서 즐거운 시간을 보내시길 바랍니다.
             </p>
           </div>
         </Interior>
@@ -414,7 +418,7 @@ const Home = ({ menus }: IHomeProps) => {
       <ContentWrap>
         <ContnetTitle>franchise</ContnetTitle>
         <ContentCaption>
-          함께 성장하는 아임일리터와 창업성공의 꿈을 이루세요.
+          함께 성장하는 유어일리터와 창업성공의 꿈을 이루세요.
         </ContentCaption>
         <Franchise>
           <Card>
@@ -425,7 +429,7 @@ const Home = ({ menus }: IHomeProps) => {
             <CardText>
               <h3>창업절차</h3>
               <p>
-                아임일리터 가맹점 <br /> 창업절차입니다.
+                유어일리터 가맹점 <br /> 창업절차입니다.
               </p>
             </CardText>
             <GoCard>바로가기</GoCard>
@@ -437,7 +441,7 @@ const Home = ({ menus }: IHomeProps) => {
             <CardText>
               <h3>창업비용</h3>
               <p>
-                아임일리터 창업에 들어가는 <br /> 창업비용입니다.
+                유어일리터 창업에 들어가는 <br /> 창업비용입니다.
               </p>
             </CardText>
             <GoCard>바로가기</GoCard>
@@ -461,7 +465,7 @@ const Home = ({ menus }: IHomeProps) => {
             <CardText>
               <h3>창업문의</h3>
               <p>
-                함께 성장하는 아임일리터와 <br /> 성공창업의 꿈을 이루세요
+                함께 성장하는 유어일리터와 <br /> 성공창업의 꿈을 이루세요
               </p>
             </CardText>
             <GoCard>바로가기</GoCard>

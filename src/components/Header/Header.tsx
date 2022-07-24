@@ -112,8 +112,8 @@ const Header = () => {
         <Logo>
           <Link to="/">
             <img
-              src={process.env.PUBLIC_URL + '/logo.png'}
-              alt="아임일리터 로고"
+              src={process.env.PUBLIC_URL + '/logo.svg'}
+              alt="유어일리터 로고"
             />
           </Link>
         </Logo>

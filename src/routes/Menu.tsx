@@ -184,7 +184,7 @@ const Menu = ({ menus }: IMenuProps) => {
         <MenuContent>
           <SectionTitle>
             <h2>menu</h2>
-            <p>고객을 위한 정성이 담긴 아임일리터의 메뉴입니다</p>
+            <p>고객을 위한 정성이 담긴 유어일리터의 메뉴입니다</p>
           </SectionTitle>
           <SelectBox onChange={handleSelect}>
             <option value="coffee">coffee</option>

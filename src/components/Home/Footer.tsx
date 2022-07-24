@@ -35,7 +35,7 @@ const Wrapper = styled.footer`
     max-width: 1280px;
     margin: 0 auto;
     img {
-      width: 180px;
+      width: 240px;
       margin-bottom: 1.2em;
     }
     p {
@@ -54,13 +54,13 @@ const Footer = () => {
     <Wrapper>
       <div className="layout">
         <img
-          src={process.env.PUBLIC_URL + '/image/logo-full-white.png'}
+          src={process.env.PUBLIC_URL + '/image/logo-full-white.svg'}
           alt="흰색 글씨 로고"
         />
-        <p>법인명 : (주)아임일리터 | 대표자 : 임시훈</p>
-        <p>주소지 : 대전광역시 중구 대종로 451, 3층 </p>
+        <p>법인명 : (주)유어일리터 | 대표자 : 000</p>
+        <p>주소지 : 대전광역시 중구 대종로 </p>
         <p>
-          TEL : 1600-1061 | FAX : 042-252-1126 | Email : im1lcoffee@naver.com{' '}
+          TEL : 1600-0000 | FAX : 000-000-0000 | Email : your1lcoffee@naver.com{' '}
         </p>
         <Snsicon>
           <a href="#">

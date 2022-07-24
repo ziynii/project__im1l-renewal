@@ -25,7 +25,7 @@ const AllMenuTab = ({ tabnum, setOpenAllMenu }: ITabProps) => {
   if (tabnum === 1) {
     return (
       <>
-        <Item>아임일리터</Item>
+        <Item>유어일리터</Item>
         <Item>찾아오시는길</Item>
         <Item>채용안내</Item>
       </>
